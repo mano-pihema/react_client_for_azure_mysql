@@ -11,14 +11,14 @@ export function Country({ countryname }) {
         .then((res) => res.data),
   })
   console.log(data)
-  const { Name, Continent, Population, Region } = data
+  const { Code, Name, Continent, Population, Region } = data[0]
   return (
     <div>
       <h2>Country</h2>
       {isLoading && <div>...Loading</div>}
       {data && (
         <div>
-          <p>code:{data.Code}</p>
+          <p>code:{Code}</p>
           <p>name:{Name}</p>
           <p>contient:{Continent}</p>
           <p>pop:{Population}</p>
