@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const API_HOST = import.meta.env.VITE_APP_API_HOST
 // const API_HOST = "https://mr-countries-andrew.azurewebsites.net";
-// console.log(API_HOST);
+console.log(API_HOST)
 
 export function Countries() {
   const { isPending, error, data, isFetching } = useQuery({
