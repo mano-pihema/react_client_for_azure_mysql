@@ -8,7 +8,12 @@ export function Country({ countryname }) {
     queryFn: () =>
       axios
         .get(`https://mrworld.azurewebsites.net/country/${countryname}`)
-        .then((res) => console.log(res)),
+        .then(() =>
+          console.log(
+            `https://mrworld.azurewebsites.net/country/${countryname}`
+          )
+        )
+        .then((res) => res.data),
   })
   console.log('data', data)
   console.log('name', countryname)
