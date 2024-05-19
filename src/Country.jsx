@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export function Country({ countryname }) {
   const { data, isLoading } = useQuery({
-    queryKey: ['country'],
+    queryKey: ['country', countryname],
     queryFn: () =>
       axios
         .get(`https://mrworld.azurewebsites.net/country/${countryname}`)
@@ -12,13 +12,13 @@ export function Country({ countryname }) {
   })
   console.log('data', data)
   console.log('name', countryname)
-  //const [countryData] = data
-  // const { Code, Name, Continent, Population, Region } = countryData
+  const [countryData] = data
+  const { Code, Name, Continent, Population, Region } = countryData
   return (
     <div>
       <h2>Country</h2>
       {isLoading && <div>...Loading</div>}
-      {/* {data && (
+      {data && (
         <div>
           <p>code:{Code}</p>
           <p>name:{Name}</p>
@@ -26,7 +26,7 @@ export function Country({ countryname }) {
           <p>pop:{Population}</p>
           <p>region:{Region}</p>
         </div>
-      )} */}
+      )}
     </div>
   )
 }
