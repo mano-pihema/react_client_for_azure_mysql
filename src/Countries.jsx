@@ -30,7 +30,6 @@ export function Countries() {
             {data &&
               data.map((country) => (
                 <li key={country.Code}>
-                  {console.log(country)}
                   {country.Name} - {country.Code}
                 </li>
               ))}

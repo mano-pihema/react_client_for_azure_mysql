@@ -28,7 +28,8 @@ ErrorElement.propTypes = {
   error: PropTypes.object.isRequired,
 }
 function App() {
-  let { countryname, continent } = useParams()
+  let { continent } = useParams()
+
   let router = createBrowserRouter([
     {
       path: '/',
@@ -53,7 +54,7 @@ function App() {
         },
         {
           path: 'country/:countryname',
-          element: <Country countryname={countryname} />,
+          element: <CountryWithParams />,
         },
       ],
     },
@@ -65,6 +66,11 @@ function App() {
       </QueryClientProvider>
     </div>
   )
+}
+
+function CountryWithParams() {
+  const { countryname } = useParams()
+  return <Country countryname={countryname} />
 }
 
 export default App
