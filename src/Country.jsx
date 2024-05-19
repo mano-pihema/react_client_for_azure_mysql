@@ -12,19 +12,18 @@ export function Country({ countryname }) {
   })
   console.log('data', data)
   console.log('name', countryname)
-  const [countryData] = data
-  const { Code, Name, Continent, Population, Region } = countryData
+
   return (
     <div>
       <h2>Country</h2>
       {isLoading && <div>...Loading</div>}
       {data && (
         <div>
-          <p>code:{Code}</p>
-          <p>name:{Name}</p>
+          <p>code:{data[0]?.Code}</p>
+          {/* <p>name:{Name}</p>
           <p>contient:{Continent}</p>
           <p>pop:{Population}</p>
-          <p>region:{Region}</p>
+          <p>region:{Region}</p> */}
         </div>
       )}
     </div>
