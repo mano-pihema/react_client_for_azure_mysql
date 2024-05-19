@@ -3,21 +3,22 @@ import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 export function Country({ countryname }) {
-  const { data, isPending } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ['country'],
     queryFn: () =>
       axios
         .get(`https://mrworld.azurewebsites.net/country/${countryname}`)
         .then((res) => res.data),
   })
-  const { Code, Name, Continent, Population, Region } = data
+  console.log(data)
+  const { Name, Continent, Population, Region } = data
   return (
     <div>
       <h2>Country</h2>
-      {isPending && <div>...Loading</div>}
+      {isLoading && <div>...Loading</div>}
       {data && (
         <div>
-          <p>code:{Code}</p>
+          <p>code:{data.Code}</p>
           <p>name:{Name}</p>
           <p>contient:{Continent}</p>
           <p>pop:{Population}</p>
